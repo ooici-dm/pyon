@@ -34,7 +34,8 @@ setup(  name = 'pyon',
                 ]
             },
         dependency_links = [
-            'http://ooici.net/releases'
+            'http://ooici.net/releases',
+            'https://github.com/lukecampbell/csleep/tarball/master#egg=csleep'
         ],
         test_suite = 'pyon',
         install_requires = [
@@ -60,6 +61,7 @@ setup(  name = 'pyon',
             'readline==6.2.1',
             'mock==0.8',
             'ndg-xacml==0.4.0',
+            'csleep',
             'h5py==2.0.1', # see: http://www.hdfgroup.org/HDF5/release/obtain5.html
 
             # DM related dependencies for 'tables'
