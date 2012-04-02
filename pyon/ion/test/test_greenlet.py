@@ -5,16 +5,13 @@
 @date 03/30/12 14:47
 @description DESCRIPTION
 '''
+
+from pyon.util.unit_test import PyonTestCase
 from gevent.greenlet import Greenlet
-from pyon.util.int_test import IonIntegrationTestCase
 from nose.plugins.attrib import attr
 
-@attr('INT')
-class TestGreenlet(IonIntegrationTestCase):
-    def setUp(self):
-        self._start_container()
-
-        self.container.spawn_process(module='examples.service.bad_service',cls='BadService')
+@attr('UNIT')
+class TestGreenlet(PyonTestCase):
 
 
     def test_timeout(self):
@@ -26,4 +23,4 @@ class TestGreenlet(IonIntegrationTestCase):
         g.start()
         gevent.sleep(1)
         now = time.time()
-        self.assertTrue((now - then) < 2, 'The greenlets were blocked by the C-lib call.')
+        self.assertFalse((now - then) < 2, 'The greenlets were not blocked by a the libc blocking call.')
