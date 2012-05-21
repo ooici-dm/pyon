@@ -250,6 +250,33 @@ class FileSystem(object):
         return AtomicFile(fname=filename)
 
 
+    @staticmethod
+    def mkfs(size, options, name):
+        """
+        @description make a new virtual file system
+        """
+        # use hdiutil for now...
+        pass
+
+    @staticmethod
+    def mount(fstype, mountpoint,  options):
+        """
+        @description mount a virtual file system
+
+        @todo Make always no exec
+        """
+        # use hdiutil for now... or diskutil ?
+        pass
+
+    @staticmethod
+    def umount(mountpoint):
+        """
+        @description Unmount - eject a mounted volume
+        """
+        pass
+
+        #@todo - write a test that creates a volume as a disk image, mount it, put some stuff on it, duplicate it (cp file name) and mount it again.
+
 class AtomicFile(object):
     """
     A write-only atomic file. Writing is performed to a temporary file and on close,
